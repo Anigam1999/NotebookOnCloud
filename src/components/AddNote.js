@@ -4,12 +4,12 @@ import NoteContext from "../context/notes/NoteContext";
 const AddNote = () => {
   const context = useContext(NoteContext);
   const { addNote } = context;
-  
-  const [note, setNote] = useState({title: "", description:"", tag:"default"})
+  const [note, setNote] = useState({title: "", description:"", tag:""})
   
   const handleClick = (e)=>{
     e.preventDefault()
-    addNote(note.title, note.description, note.tag)  
+    addNote(note.title, note.description, note.tag)
+    setNote({title: "", description:"", tag:""})  
   }
   
   const onChange =(e)=>{
@@ -24,30 +24,32 @@ const AddNote = () => {
           <label htmlFor="title" className="form-label">
             Title
           </label>
-          <input onChange={onChange}
+          <input value={note.title} onChange={onChange}
             type="text"
             className="form-control"
             id="title"
             name="title"
             aria-describedby="emailHelp"
+            minLength={5} required  
           />
         </div>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
             Description
           </label>
-          <input onChange={onChange}
+          <input value={note.description} onChange={onChange}
             name="description"
             type="text"
             className="form-control"
             id="description"
+            minLength={5} required
           />
         </div>
         <div className="mb-3">
           <label htmlFor="tag" className="form-label">
             Tag
           </label>
-          <input onChange={onChange}
+          <input value={note.tag} onChange={onChange}
             name="tag"
             type="text"
             className="form-control"
@@ -55,7 +57,7 @@ const AddNote = () => {
           />
         </div>
         
-        <button onClick={handleClick} type="submit" className="btn btn-primary">
+        <button disabled={note.title.length<5 || note.description.length<5} onClick={handleClick} type="submit" className="btn btn-primary">
           Add Note
         </button>
       </form>
