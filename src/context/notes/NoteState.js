@@ -6,15 +6,14 @@ const NoteState = (props) => {
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
-  // get all Notes
+  // get all Notes 
   const getNotes = async () => {
     // api call
     const response = await fetch(`${host}/api/notes/fetchallnotes/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRlNGE5MWYyZWY1Mjg0ZmZhODEzNDI0In0sImlhdCI6MTY5MjcwNzU0OH0.YwxIMo0riwsb_2YcXCJiMv0u_bPGsUPLUmV588dG32o",
+        "auth-token": localStorage.getItem('token'),
       },
     });
     const json = await response.json()
@@ -28,8 +27,7 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRlNGE5MWYyZWY1Mjg0ZmZhODEzNDI0In0sImlhdCI6MTY5MjcwNzU0OH0.YwxIMo0riwsb_2YcXCJiMv0u_bPGsUPLUmV588dG32o",
+        "auth-token": localStorage.getItem('token'),
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -44,8 +42,7 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRlNGE5MWYyZWY1Mjg0ZmZhODEzNDI0In0sImlhdCI6MTY5MjcwNzU0OH0.YwxIMo0riwsb_2YcXCJiMv0u_bPGsUPLUmV588dG32o",
+        "auth-token": localStorage.getItem('token'),
       },
     });
     const newNotes = notes.filter((note) => note._id !== id);
@@ -59,8 +56,7 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRlNGE5MWYyZWY1Mjg0ZmZhODEzNDI0In0sImlhdCI6MTY5MjcwNzU0OH0.YwxIMo0riwsb_2YcXCJiMv0u_bPGsUPLUmV588dG32o",
+        "auth-token": localStorage.getItem('token'),
       },
       body: JSON.stringify({ title, description, tag }),
     });
