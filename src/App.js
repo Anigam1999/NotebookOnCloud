@@ -18,7 +18,7 @@ function App() {
       type: type
     })
     setTimeout(()=>{
-      setAlert(null)
+      setAlert(null) 
     }, 1500)
   }
   return (

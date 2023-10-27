@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+# just use name to ignore all files with this name in the directory
 node_modules
 /.pnp
 .pnp.js

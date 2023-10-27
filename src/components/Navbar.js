@@ -7,7 +7,7 @@ const Navbar = () => {
   const handleLogout = ()=>{
     localStorage.removeItem('token')
     navigate('/login')
-  }
+  } 
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">

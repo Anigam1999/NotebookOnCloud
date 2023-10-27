@@ -7,6 +7,8 @@ const app = express()
 const port = 5000
 
 app.use(cors())
+
+// This middleware is used to handle and process JSON data sent by clients, such as data submitted in the request body of a POST or PUT request 
 app.use(express.json())
 
 app.use('/api/auth', require('./routes/auth'))
