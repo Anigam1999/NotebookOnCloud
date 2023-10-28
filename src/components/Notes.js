@@ -18,7 +18,7 @@ const Notes = (props) => {
   }, []);
   const ref = useRef(null);
   const refClose = useRef(null);
-  const [note, setNote] = useState({
+  const [note, setNote] = useState({ 
     id: "",
     etitle: "",
     edescription: "",
@@ -56,7 +56,7 @@ const Notes = (props) => {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Launch demo modal
+        Launch demo modal - used d-none to hide it
       </button>
       <div
         className="modal fade"
@@ -65,6 +65,7 @@ const Notes = (props) => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+        {/* model dialog that is called when launched demo modal button is clicked by NoteItem edit icon*/}
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -126,6 +127,7 @@ const Notes = (props) => {
               </form>
             </div>
             <div className="modal-footer">
+              {/* this close button is clicked by handleClick to call editNote, close modal and show alert.*/}
               <button
                 ref={refClose}
                 type="button"

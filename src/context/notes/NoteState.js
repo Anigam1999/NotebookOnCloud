@@ -5,7 +5,7 @@ const NoteState = (props) => {
   const host = "http://localhost:5000";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
-
+ 
   // get all Notes 
   const getNotes = async () => {
     // api call
@@ -29,6 +29,7 @@ const NoteState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token'),
       },
+      // convert js object into document
       body: JSON.stringify({ title, description, tag }),
     });
     const note = await response.json()
