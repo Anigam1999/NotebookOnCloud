@@ -7,14 +7,14 @@ const Login = (props) => {
     const handleSubmit = async (e)=>{ 
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/auth/login", {
-            method: "POST",
+            method: "POST", 
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({ email: credentials.email, password: credentials.password})
           });
         const json = await response.json()
-        console.log(json)
+        // console.log(json)
         if(json.success){
             localStorage.setItem('token', json.authtoken)
             props.showAlert("Logged in Successfully", "success")
@@ -25,7 +25,7 @@ const Login = (props) => {
     }
     const onChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    };
+    }; 
   return (
     <div className="mt-3">
       <h2 className="my-3">Login to continue to iNotebook</h2>

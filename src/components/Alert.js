@@ -11,7 +11,7 @@ function Alert(props) {
     {props.alert.msg} 
     </div>} 
     </div>   
-  )
+  ) 
 }
 
 export default Alert

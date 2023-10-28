@@ -16,7 +16,7 @@ const Signup = (props) => {
       body: JSON.stringify({name, email, password}),
     });
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       navigate("/");
@@ -24,7 +24,7 @@ const Signup = (props) => {
     } else {
       props.showAlert("Invalid Details", "danger")
     }
-  };
+  }; 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
